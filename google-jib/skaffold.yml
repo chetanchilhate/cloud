@@ -1,0 +1,12 @@
+apiVersion: skaffold/v2beta10
+kind: Config
+build:
+  artifacts:
+    - image: chetanchilhate/google-jib
+      context: .
+      jib: {}
+
+deploy:
+  kubectl:
+    manifests:
+      - build/classes/java/main/META-INF/dekorate/*.yml
